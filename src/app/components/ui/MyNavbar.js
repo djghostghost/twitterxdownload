@@ -39,9 +39,6 @@ export default function MyNavbar({ locale = 'en' }) {
           {t('Downloader')}
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <FriendsLink locale={locale} />
-        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">

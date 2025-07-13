@@ -103,7 +103,7 @@ export default function CurrentPage() {
                             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
                             <p className="mb-4">If you have any questions about this Privacy Policy, please contact us:</p>
                             <ul className="list-disc pl-6 space-y-2 mb-4">
-                                <li>By email: support@twitterxdownload.com</li>
+                                <li>By email: support@xvideo.video</li>
                                 <li>By visiting the contact section on our website</li>
                             </ul>
                         </section>

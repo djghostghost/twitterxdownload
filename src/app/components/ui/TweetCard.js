@@ -16,13 +16,51 @@ export default function TweetCard({ tweet,enableEdit = false,locale='en', classN
     const [savedPwd, setSavedPwd] = useState(localStorage.getItem('adminpwd') || '');
 
     const getMediaDom = (mediaUrl) => {
+        const handleDownload = (e, url) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = url.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
         if (mediaUrl.includes('.mp4') || mediaUrl.startsWith('data:video/mp4')) {
             return (
-                <video controls src={mediaUrl} alt="Tweet media" className="w-full h-full rounded-lg object-cover" />
+                <div className="relative w-full h-full rounded-lg overflow-hidden">
+                    <video controls src={mediaUrl} alt="Tweet media" className="w-full h-full object-cover" />
+                    <div
+                        className="absolute top-2 right-2"
+                        onClick={(e) => e.stopPropagation()} // 防止冒泡到Link
+                    >
+                        <button
+                            onClick={(e) => handleDownload(e, mediaUrl)}
+                            className="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded"
+                        >
+                            Download
+                        </button>
+                    </div>
+                </div>
             )
         }
         return (
-            <img src={mediaUrl} alt="Tweet media" className="w-full h-full rounded-lg object-cover" />
+            <div className="relative w-full h-full rounded-lg overflow-hidden">
+                <img src={mediaUrl} alt="Tweet media" className="w-full h-full rounded-lg object-cover" />
+                <div
+                    className="absolute top-2 right-2"
+                    onClick={(e) => e.stopPropagation()} // 防止冒泡到Link
+                >
+                    <button
+                        onClick={(e) => handleDownload(e, mediaUrl)}
+                        className="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded"
+                    >
+                        Download
+                    </button>
+                </div>
+            </div>
          )
     }
 

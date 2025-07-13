@@ -19,7 +19,6 @@ export default function MyFooter({ locale = 'en' }) {
                 <div>
                     <p className="font-bold mb-2">{t('Other Links')}</p>
                     <ul className="flex flex-col gap-1">
-                        <li><Link href="/about-us" className="text-sm hover:text-primary">{t('About Us')}</Link></li>
                         <li><Link href="/privacy-policy" className="text-sm hover:text-primary">{t('Privacy Policy')}</Link></li>
                         <li><Link href="/terms-of-service" className="text-sm hover:text-primary">{t('Terms of Service')}</Link></li>
                     </ul>
@@ -28,9 +27,9 @@ export default function MyFooter({ locale = 'en' }) {
             <div className="hidden md:flex flex-col gap-4">
                 <div>
                     <p className="font-bold mb-2">{t('Contact Us')}</p>    
-                    <Link href="mailto:support@twitterxdownload.com" className="text-sm hover:text-primary mb-4">support@twitterxdownload.com</Link>
-                    <a href="https://supadr.com?utm_source=twitterxdownload.com&utm_medium=badge&utm_campaign=supadr" target="_blank">
-                        <img src="https://supadr.com/api/badge/twitterxdownload.com.svg?theme=blue" alt="Domain Rating for twitterxdownload.com" width="280" height="64" />
+                    <Link href="mailto:support@xvideo.video" className="text-sm hover:text-primary mb-4">support@xvideo.video</Link>
+                    <a href="https://supadr.com?utm_source=xvideo.xvideo&utm_medium=badge&utm_campaign=supadr" target="_blank">
+                        <img src="https://supadr.com/api/badge/xvideo.video.svg?theme=blue" alt="Domain Rating for xvideo.video" width="280" height="64" />
                     </a>
                 </div>
             </div>

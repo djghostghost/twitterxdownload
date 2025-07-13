@@ -45,10 +45,10 @@ export default function Downloader({ params: { locale } }) {
     let retryTimes = 0;
     const fetchTweet = async (url) => {
         const tweet_id = url.match(/status\/(\d{19})/)?.[1] || url.split('/').pop();
+        console.log("tweet_id"+tweet_id);
         const response = await fetch(`/api/requestx?tweet_id=${tweet_id}`);
         const data = await response.json();
         
-
         if(!data.success){
             // 如果请求失败,最多重试3次
             // 每次重试的间隔时间需要随机在 1000-1500ms 之间
@@ -67,6 +67,8 @@ export default function Downloader({ params: { locale } }) {
 
         setIsLoading(false);
         setTweetData(data.data);
+
+        console.log("downloader:"+ data.data)
 
         const tempOriginTweets = parseTweetData(data.data);
         setOriginTweets(tempOriginTweets);

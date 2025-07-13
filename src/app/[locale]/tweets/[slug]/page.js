@@ -3,6 +3,7 @@ import { Avatar, Button } from "@heroui/react";
 import Link from "next/link";
 import { parseTweetData } from "@/lib/parser";
 import ShareButtons from "@/app/components/ui/ShareButtons";
+import TweetMedia from "@/app/components/ui/TweetMedia";
 import Explore from "@/app/components/ui/Explore";
 import { headers } from 'next/headers'
 
@@ -87,30 +88,8 @@ export default async function TweetDetail({params}) {
         return text;
     }
 
-    const getHTML = () =>{
         const tweets = parseTweetData(JSON.parse(tweet.tweet_data));
-        
-        return (
-            <div 
-                className="article-content text-medium text-default-600 whitespace-pre-wrap break-words max-w-full"
-            >
-                {tweets.map((tweet, index) => (
-                    <>
-                        <pre dangerouslySetInnerHTML={{__html: linkConvert(tweet.text)}}></pre>
-                        { 
-                            tweet.medias.map((media, index) => {
-                                if(media.type==="photo"){
-                                    return <img src={media.url} alt={media.alt} />
-                                }else if(media.type==="video"){
-                                    return <video controls src={media.url} alt={media.alt} />
-                                }
-                            })
-                        }
-                    </>
-                ))}
-            </div>
-        )
-    }
+
 
     return (
         <div className="page-container flex flex-row gap-6 p-4 mt-4 flex-wrap md:flex-nowrap w-full">
@@ -134,7 +113,7 @@ export default async function TweetDetail({params}) {
                 </div>
                 <div className="w-full h-[1px] bg-foreground/10 mt-3"></div>
                 <div className="text-medium text-default-600 whitespace-pre-wrap break-words max-w-full mt-3">
-                    {getHTML()}
+                    <TweetMedia tweets={tweets} />
                 </div>
             </div>
             <div className="flex flex-col gap-6 w-full md:w-[300px] flex-shrink-0 box-border">
