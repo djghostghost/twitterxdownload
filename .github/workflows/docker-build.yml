@@ -24,7 +24,6 @@ jobs:
           exclude-workflow-initiator-as-approver: false
           issue-title: "Production Deployment Approval Required"
           issue-body: "Please approve this production deployment by replying 'approve' or deny by replying 'deny'."
-          timeout-minutes: 60
   build-and-deploy:
     runs-on: ubuntu-latest
     needs: approval
