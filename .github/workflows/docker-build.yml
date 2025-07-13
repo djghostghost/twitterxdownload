@@ -3,7 +3,13 @@ name: Build and Deploy Next.js to Remote
 on:
   push:
     branches:
-      - main  # 可根据需要修改为你使用的分支
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+  issues: write
 
 jobs:
   approval:
