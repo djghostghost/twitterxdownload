@@ -48,9 +48,7 @@ jobs:
           rm -rf .git
 
       - name: 📦 Create tarball for deployment
-        run: tar czf xvideo.tar.gz .next public package.json .env
-
-
+        run: tar czf xvideo.tar.gz .next public package.json .env.production
 
       - name: 🚀 Deploy to Remote Server via SSH
         uses: appleboy/scp-action@v0.1.7
