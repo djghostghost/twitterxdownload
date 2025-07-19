@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import PlyrPlayer from "./PlyrPlayer";
 
 export default function TweetMedia({ tweets }) {
 
@@ -37,7 +38,8 @@ export default function TweetMedia({ tweets }) {
                             return <img key={mIndex} src={media.url} alt={media.alt} />
                         } else if (media.type === "video") {
                             return (
-                                <video controls src={media.url} alt={media.alt} className="w-full rounded" />
+                                <PlyrPlayer src={media.url} showDownload={true}/>
+                                // <video controls src={media.url} alt={media.alt} className="w-full rounded" />
                             );
                         }
                     })}
