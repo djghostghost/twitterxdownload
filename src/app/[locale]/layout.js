@@ -8,6 +8,7 @@ import {Providers} from "../providers";
 
 import MyNavbar from '../components/ui/MyNavbar';
 import MyFooter from '../components/ui/MyFooter';
+import MobileBottomNav from "../components/ui/MobileBottomNav";
 
 
 export const metadata = {
@@ -66,6 +67,7 @@ export default function RootLayout({ children, params }) {
                 <MyNavbar locale={locale} />
                 {children}
                 <MyFooter locale={locale} />
+                <MobileBottomNav locale={locale} />
             </Providers>
         </body>
       </html>

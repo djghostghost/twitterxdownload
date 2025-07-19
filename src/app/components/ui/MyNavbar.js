@@ -41,10 +41,10 @@ export default function MyNavbar({ locale = 'en' }) {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden md:flex">
+        <NavbarItem>
           <LanguageSwitcher locale={locale} />
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden md:flex">
           <ThemeSwitcher />
         </NavbarItem>
       </NavbarContent>
